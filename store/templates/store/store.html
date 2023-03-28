@@ -1,18 +1,37 @@
 {% extends "store/main.html" %}
 {% load static %}
+{% block head %}
+<style>
+    /* Default style for h4 element *
+
+    /* Style for h4 element on screens smaller than 768px */
+</style>
+{% endblock head %}
 
 {% block content %}
 
 <div class="row">
     {% for product in products%}
     <div class="col-lg-4">
-        <img class="thumbnail" src="{% static 'images/placeholder.png'%}">
+        <img class="thumbnail" src="{{product.imgURL}}">
         <div class="box-element product">
             <h6><strong>{{product.name}}</strong></h6>
+
+
             <hr>
-             <button class="btn btn-outline-secondary add-btn"> Add to cart </button>
-            <a class="btn btn-outline-success" href="">View</a>
-             <h4 style="display:inline-block; float: right">${{product.price|floatformat:2}}</h4>
+            <!-- <div>
+                <button class="btn btn-outline-secondary add-btn"> Add to cart </button>
+                <a class="btn btn-outline-success" href="">View</a>
+                <h6 style="display:inline; float:right">${{product.price|floatformat:2}}</h6>
+            </div> -->
+
+            <div style="position: relative;">
+                <button data-product="{{product.id}}" data-action="add" class="btn btn-outline-secondary add-btn update-cart"> Add to cart </button>
+                <a class="btn btn-outline-success" href="">View</a>
+                <h6 style="position: absolute; bottom: 0; right: 0;">${{product.price|floatformat:2}}</h6>
+              </div>
+              
+            
         </div>
     </div>
     {% endfor %}
