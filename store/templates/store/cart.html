@@ -39,10 +39,8 @@
         <div style="flex:1">${{item.product.price|floatformat:2}}</div>
         <div style="flex:1">
           <p class="quantity">{{item.quantity}}</p>
-          <div class="chg-quantity">
-            <img class="arrow-up" src="{% static 'images/arrow-up.png' %}" />
-            <img class="arrow-down" src="{% static 'images/arrow-down.png' %}" />
-          </div>
+            <img  data-product ="{{item.product.id}}" data-action = "add" class="arrow-up update-cart" src="{% static 'images/arrow-up.png' %}" />
+            <img data-product = "{{item.product.id}}" data-action="remove" class="arrow-down update-cart" src="{% static 'images/arrow-down.png' %}" />
         </div>
         <div style="flex:1">${{item.get_total}}</div>
       </div>
