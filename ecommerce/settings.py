@@ -27,7 +27,7 @@ SECRET_KEY = 'django-insecure-c@2th@3e%24_b=p5bjf+mk5hmpl%a=q9+6u#d&v5oct9ndl)od
 DEBUG = True
 
 ALLOWED_HOSTS = [
-    '.vercel.app'
+    '.vercel.app','.now.sh'
 ]
 
 
@@ -79,10 +79,10 @@ WSGI_APPLICATION = 'ecommerce.wsgi.application'
 # https://docs.djangoproject.com/en/4.1/ref/settings/#databases
 
 DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
-    }
+    # 'default': {
+    #     'ENGINE': 'django.db.backends.sqlite3',
+    #     'NAME': BASE_DIR / 'db.sqlite3',
+    # }
 }
 
 
@@ -123,9 +123,9 @@ USE_TZ = True
 STATIC_URL = '/static/'
 
 
-STATICFILES_DIRS=[
-    os.path.join(BASE_DIR,'static')
-]
+STATICFILES_DIRS = os.path.join(BASE_DIR,'static'),
+STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles_build','static')
+
 
 MEDIA_ROOT = os.path.join(BASE_DIR,'images')
 # Default primary key field type
